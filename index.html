@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HP Shop</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="top-header">
+      <div class="logo">
+        <img src="logo.jpg" alt="Logo" />
+        <h1>HOANGPHUC<br /><small>Shop Len Sợi</small></h1>
+      </div>
+      <div class="search-bar">
+        <select id="category-filter">
+          <option value="">Tất cả</option>
+          <option value="kim-moc-len">Kim móc len</option>
+          <option value="dung-cu-dan-moc">Dụng cụ đan móc</option>
+          <option value="kim-dan-len">Kim đan len</option>
+          <option value="nguyen-lieu">Nguyên liệu</option>
+          <option value="phu-kien">Phụ kiện</option>
+        </select>
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Tìm sản phẩm bạn mong muốn"
+        />
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="user-icons">
+        <a href="#" id="cart-btn">
+          <i class="fa fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar">
+      <ul>
+        <li class="active"><a href="#banner-section">Trang chủ</a></li>
+        <li class="has-dropdown">
+          <a href="#products-section"
+            >Sản phẩm <span class="dropdown-arrow">&#9662;</span></a
+          >
+          <ul class="dropdown">
+            <li><a href="#products-section">KIM MÓC LEN</a></li>
+            <li><a href="#products-section">NGUYÊN LIỆU THÚ BÔNG</a></li>
+            <li><a href="#products-section">NÚT TRANG TRÍ</a></li>
+            <li><a href="#products-section">NGUYÊN LIỆU HOA LEN</a></li>
+            <li><a href="#products-section">LEN ĐAN MÓC</a></li>
+            <li><a href="#products-section">PHỤ KIỆN TÚI XÁCH</a></li>
+          </ul>
+        </li>
+        <li><a href="#footer-contact">Liên hệ</a></li>
+      </ul>
+      <div class="hotline">
+        <i class="fa fa-phone-volume"></i>
+        Hotline:
+        <a
+          href="tel:0981567312"
+          style="color: #e91e63; text-decoration: none; font-weight: bold"
+          >0981567312</a
+        >
+      </div>
+    </nav>
+
+    <!-- BANNER -->
+    <section class="banner" id="banner-section">
+      <img src="banner.png" alt="Banner sản phẩm len" />
+      <div class="banner-text">
+        <h2>Chào mừng bạn đến với HoangPhucShop</h2>
+        <p>
+          Tiệm Len Hoàng Phúc luôn đặt khách hàng lên hàng đầu, cam kết mang đến
+          những sản phẩm len và phụ kiện chất lượng cao, nguồn gốc rõ ràng.
+          Chúng tôi xây dựng uy tín bằng sự tận tâm và chu đáo, để mỗi khách
+          hàng khi đến với Hoàng Phúc đều cảm thấy an tâm và hài lòng.
+        </p>
+        <button class="shop-now" onclick="scrollToProducts()">Mua ngay</button>
+      </div>
+    </section>
+
+    <!-- GIỎ HÀNG POPUP -->
+    <div id="cart-modal" class="cart-modal">
+      <div class="cart-modal-content">
+        <span class="close-cart" id="close-cart">&times;</span>
+        <h3>Giỏ hàng của bạn</h3>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; border-collapse: collapse" id="cart-table">
+            <thead>
+              <tr style="color: #e91e63">
+                <th style="text-align: left; padding: 8px 4px">
+                  Thông tin sản phẩm
+                </th>
+                <th style="padding: 8px 4px">Đơn giá</th>
+                <th style="padding: 8px 4px">Số lượng</th>
+                <th style="padding: 8px 4px">Thành tiền</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="cart-items-table">
+              <!-- Render bằng JS -->
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top: 12px; text-align: right">
+          <span style="font-weight: bold">Tổng tiền:</span>
+          <span id="total" style="color: #e91e63; font-weight: bold">0</span>đ
+        </div>
+        <button id="checkout-btn" style="margin-top: 16px">Thanh toán</button>
+      </div>
+    </div>
+
+    <!-- DANH MỤC SẢN PHẨM -->
+    <section class="product-category" id="products-section">
+      <div class="category-header">
+        <h2>CÁC SẢN PHẨM</h2>
+        <div class="category-nav">
+          <button class="cat-btn active">KIM MÓC LEN</button>
+          <button class="cat-btn">DỤNG CỤ ĐAN MÓC</button>
+          <button class="cat-btn">KIM ĐAN LEN</button>
+          <button class="cat-btn">NGUYÊN LIỆU THÚ BÔNG</button>
+          <button class="cat-btn">NÚT TRANG TRÍ</button>
+        </div>
+      </div>
+      <div class="product-list" id="products">
+
+       
+    </section>
+
+    <!-- ĐỀ XUẤT SẢN PHẨM KHI TÌM KIẾM -->
+    <div id="search-suggest" class="search-suggest"></div>
+
+    <!-- LIÊN HỆ -->
+    <footer class="footer-contact" id="footer-contact">
+      <div class="contact-info">
+        <h3>Liên hệ với chúng tôi</h3>
+        <p>
+          Email:
+          <a href="mailto:hoangphuclen@gmail.com">hoangphuclen@gmail.com</a>
+        </p>
+        <p>
+          Facebook:
+          <a href="https://facebook.com/hoangphuclen" target="_blank"
+            >facebook.com/hoangphuclen</a
+          >
+        </p>
+        <p>Địa chỉ: 123 Đường Len Sợi, Quận 1, TP.HCM</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+      // Cuộn tới sản phẩm khi bấm "Mua ngay"
+      function scrollToProducts() {
+        document
+          .getElementById("products-section")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
